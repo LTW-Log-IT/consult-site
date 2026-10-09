@@ -2,36 +2,30 @@
 import Base from '../layouts/Base.astro';
 import CageLine from '../components/CageLine.astro';
 const rules = [
-  { h: 'Client bid data is isolated', p: 'Client bid data is kept separate from Lead the Way Logistics & IT’s own teaming and delivery pursuits, with separate storage and access. It is not shared and not reused.' },
-  { h: 'Conflict check before proposal support', p: 'Before any proposal support engagement, we check the opportunity against our own pursuits and against other clients on the same opportunity.' },
-  { h: 'No consult-then-subcontract', p: 'We refuse to consult a prime and then subcontract to that prime on the same pursuit.' },
+  { h: 'Bid data is isolated', p: 'Client bid data is kept separate from our own teaming and delivery pursuits, with separate storage and access, and is never shared or reused.' },
+  { h: 'Conflict check first', p: 'Before any proposal support, we check the opportunity against our own pursuits and against other clients on the same opportunity.' },
+  { h: 'No consult-then-subcontract', p: 'We do not consult a prime and then subcontract to that prime on the same pursuit.' },
   { h: 'Disclose and step back', p: 'If a conflict appears mid-engagement, we disclose it and step back.' },
 ];
 ---
-<Base title="Firewall" description="Conflict and data policy: client bid data isolation, conflict checks, no consult-then-subcontract, and disclosure.">
+<Base title="Firewall" description="Our conflict and data policy: bid data isolation, conflict checks, no consult-then-subcontract, and disclosure.">
   <section class="bg-gunmetal text-paper">
     <div class="wrap py-16">
       <p class="eyebrow text-brass">Firewall</p>
-      <h1 class="mt-3 max-w-4xl">Conflict and data policy.</h1>
+      <h1 class="mt-3 max-w-4xl">Firewall: conflict and data policy.</h1>
       <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">We also pursue work of our own as a teaming partner. These rules keep that separate from the work we do for you.</p>
     </div>
   </section>
   <section class="py-16">
     <div class="wrap grid gap-6 md:grid-cols-2">
-      {rules.map((r) => (
-        <div class="card"><h2 class="text-2xl">{r.h}</h2><p class="mt-2">{r.p}</p></div>
-      ))}
+      {rules.map((r) => <div class="card"><h2 class="text-2xl">{r.h}</h2><p class="mt-2">{r.p}</p></div>)}
     </div>
   </section>
   <section class="bg-band py-12">
     <div class="wrap">
       <p class="eyebrow text-field">CAGE status</p>
       <CageLine class="mt-2 max-w-3xl text-lg" />
-    </div>
-  </section>
-  <section class="py-16">
-    <div class="wrap text-center">
-      <a href="/contact" class="btn">Start a bid decision</a>
+      <a href="/contact/" class="btn mt-8">Tell us where you are</a>
     </div>
   </section>
 </Base>

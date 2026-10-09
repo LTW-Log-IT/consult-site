@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { processSteps } from '../data';
+---
+<Base title="Process" description="Seven BD steps for small businesses: identify, qualify, capture, team, propose, submit, debrief, with two decision gates.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-16">
+      <p class="eyebrow text-brass">Process</p>
+      <h1 class="mt-3 max-w-4xl">Identify, qualify, capture, team, propose, submit, debrief.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">Seven steps, two decision gates, one goal: spend BD hours on bids you can win.</p>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="wrap">
+      <ol class="space-y-6">
+        {processSteps.map((s) => (
+          <li id={`step-${s.n}`} class:list={['grid gap-4 md:grid-cols-[6rem_1fr] border-b border-[#dcdcd8] pb-6', s.gate && 'border-l-4 border-l-brass pl-4']}>
+            <div class="font-heading text-4xl font-extrabold text-field">{String(s.n).padStart(2, '0')}</div>
+            <div>
+              {s.gate && <p class="eyebrow text-crimson">{s.gate}</p>}
+              <h2 class="text-2xl">{s.name}</h2>
+              <p class="mt-2 max-w-3xl">{s.what}</p>
+              <p class="mt-2 max-w-3xl"><span class="eyebrow text-field">What you get:</span> {s.get}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="mt-8 muted">Marketing materials and capability statements support every step, from first outreach through teaming.</p>
+      <a href="/contact/" class="btn mt-8">Tell us where you are</a>
+    </div>
+  </section>
+</Base>

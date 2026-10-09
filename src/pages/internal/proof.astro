@@ -1,6 +1,6 @@
 ---
-import Base from '../layouts/Base.astro';
-import FounderBlock from '../components/FounderBlock.astro';
+import Internal from '../../layouts/Internal.astro';
+import FounderBlock from '../../components/FounderBlock.astro';
 const artifacts = [
   { name: 'Stage gates', desc: 'Defined decision points with entry criteria, the questions to answer, and who decides: go/no-go, bid/no-bid, and submit review.' },
   { name: 'Go/no-go scorecard', desc: 'A weighted scorecard covering customer access, capability fit, competition, teaming position, and resources, with a recorded decision and rationale.' },
@@ -9,7 +9,7 @@ const artifacts = [
   { name: 'After-action template', desc: 'A structured review of what happened at each stage, what the debrief said, and the specific process changes that follow.' },
 ];
 ---
-<Base title="Proof" description="The BD method artifacts we use: stage gates, go/no-go scorecard, capture plan outline, teaming tracker, and after-action template.">
+<Internal title="Proof" description="The BD method artifacts we use: stage gates, go/no-go scorecard, capture plan outline, teaming tracker, and after-action template.">
   <section class="bg-gunmetal text-paper">
     <div class="wrap py-16">
       <p class="eyebrow text-brass">Proof</p>
@@ -36,4 +36,4 @@ const artifacts = [
       <a href="/contact" class="btn mt-8">Start a bid decision</a>
     </div>
   </section>
-</Base>
+</Internal>

@@ -1,0 +1,17 @@
+---
+/*
+  SECURITY NOTE
+  /internal/ is obscurity, not access control. GitHub Pages serves every file publicly:
+  anyone with the URL can read these pages, and the source is visible in the repository
+  if it is public. Do not put anything confidential here (client data, pursuit lists,
+  pricing, partner names). If real access control is needed later, move internal content
+  behind an authenticated host such as Cloudflare Access or a private repo plus a private host.
+*/
+import Base from './Base.astro';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+---
+<Base internal title={title} description={description}>
+  <Fragment set:html={`<!-- /internal/ is obscurity, not access control. GitHub Pages serves every file publicly: anyone with the URL can read these pages, and the source is visible in the repository if it is public. Do not put anything confidential here (client data, pursuit lists, pricing, partner names). If real access control is needed later, move internal content behind an authenticated host such as Cloudflare Access or a private repo plus a private host. -->`} />
+  <slot />
+</Base>

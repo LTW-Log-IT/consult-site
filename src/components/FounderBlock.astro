@@ -1,6 +1,8 @@
 ---
 // Founder stats MUST always render with the verbatim disclaimer in the same block.
-const { heading = 'Founder experience' } = Astro.props;
+interface Props { heading?: string; eyebrow?: string; tone?: 'dark' | 'light'; }
+const { heading = 'Founder experience', eyebrow = 'Founder', tone = 'dark' } = Astro.props;
+const dark = tone === 'dark';
 const stats = [
   { n: '20+', label: 'years supporting DoD' },
   { n: '50+', label: 'Army high-priority operational tests' },
@@ -8,20 +10,20 @@ const stats = [
   { n: '800+', label: 'test participants accounted for daily' },
 ];
 ---
-<section class="bg-gunmetal text-paper py-16" aria-labelledby="founder-heading">
+<section class:list={['py-16', dark ? 'bg-gunmetal text-paper' : 'bg-paper text-contrast']} aria-labelledby="founder-heading" data-founder-block>
   <div class="wrap">
-    <p class="eyebrow text-brass">Founder</p>
+    <p class:list={['eyebrow', dark ? 'text-brass' : 'text-field']}>{eyebrow}</p>
     <h2 id="founder-heading" class="mt-2">{heading}</h2>
-    <p class="mt-4 max-w-3xl text-[#d6d6d6]">Roughly two decades at ATEC and USAOTC (now aligned under T2COM, formerly Army Futures Command), including Project Lead for the IOT&amp;E of a Major Defense Acquisition Program.</p>
+    <p class:list={['mt-4 max-w-3xl', dark ? 'text-[#d6d6d6]' : 'text-field']}>Roughly two decades at ATEC and USAOTC (now aligned under T2COM, formerly Army Futures Command), including Project Lead for the IOT&amp;E of a Major Defense Acquisition Program.</p>
     <dl class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {stats.map((s) => (
         <div class="border-l-4 border-brass pl-4">
-          <dt class="font-heading text-4xl font-extrabold text-paper">{s.n}</dt>
-          <dd class="mt-1 text-[#d6d6d6]">{s.label}</dd>
+          <dt class:list={['font-heading text-4xl font-extrabold', dark ? 'text-paper' : 'text-contrast']}>{s.n}</dt>
+          <dd class:list={['mt-1', dark ? 'text-[#d6d6d6]' : 'text-field']}>{s.label}</dd>
         </div>
       ))}
     </dl>
-    <p class="mt-8 max-w-3xl border border-[#444] bg-[#222] p-4 text-paper" data-founder-disclaimer>Figures describe our founder’s professional experience with prior employers. They are not corporate past performance of Lead the Way Logistics &amp; IT LLC.</p>
+    <p class:list={['mt-8 max-w-3xl border p-4', dark ? 'border-[#444] bg-[#222] text-paper' : 'border-[#dcdcd8] bg-band text-contrast']} data-founder-disclaimer>Figures describe our founder’s professional experience with prior employers. They are not corporate past performance of Lead the Way Logistics &amp; IT LLC.</p>
     <slot />
   </div>
 </section>

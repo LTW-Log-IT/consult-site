@@ -1,8 +1,8 @@
 ---
-import Base from '../layouts/Base.astro';
-import { stages } from '../data';
+import Internal from '../../layouts/Internal.astro';
+import { stages } from '../../data';
 ---
-<Base title="Method" description="Twelve BD stages for defense and federal small businesses, with go/no-go, bid/no-bid, and submit review gates.">
+<Internal title="Method" description="Twelve BD stages for defense and federal small businesses, with go/no-go, bid/no-bid, and submit review gates.">
   <section class="bg-gunmetal text-paper">
     <div class="wrap py-16">
       <p class="eyebrow text-brass">Method</p>
@@ -38,9 +38,9 @@ import { stages } from '../data';
         ))}
       </ol>
       <div class="mt-12 flex flex-wrap gap-4">
-        <a href="/engagements" class="btn-outline text-contrast">See engagements</a>
+        <a href="/internal/engagements/" class="btn-outline text-contrast">See engagements</a>
         <a href="/contact" class="btn">Start a bid decision</a>
       </div>
     </div>
   </section>
-</Base>
+</Internal>

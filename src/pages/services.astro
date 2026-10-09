@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import { services, serviceGroups } from '../data';
+---
+<Base title="Services" description="Opportunity identification, bid/no-bid, capture planning, teaming, proposal development and review, RFI responses, capability statements, marketing materials, and BD system setup.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-16">
+      <p class="eyebrow text-brass">Services</p>
+      <h1 class="mt-3 max-w-4xl">Services for the full BD process.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">Pick what you need for one pursuit, or combine services into an ongoing BD function.</p>
+    </div>
+  </section>
+  {serviceGroups.map((g, i) => (
+    <section class:list={['py-14', i % 2 === 0 ? 'bg-band' : 'bg-paper']}>
+      <div class="wrap">
+        <p class="eyebrow text-field">{String(i + 1).padStart(2, '0')}</p>
+        <h2 class="mt-1">{g}</h2>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          {services.filter((s) => s.group === g).map((s) => (
+            <article id={s.id} class="card scroll-mt-6">
+              <h3 class="text-2xl">{s.name}</h3>
+              <dl class="mt-4 space-y-3">
+                <div><dt class="font-heading font-bold">Who it’s for</dt><dd>{s.who}</dd></div>
+                <div><dt class="font-heading font-bold">What we do</dt><dd>{s.what}</dd></div>
+                <div><dt class="font-heading font-bold">What you get</dt><dd>{s.get}</dd></div>
+              </dl>
+              {s.note && <p class="mt-4 border-l-4 border-crimson bg-band p-3 text-[0.9375rem]">{s.note}</p>}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+  <section class="py-16">
+    <div class="wrap text-center">
+      <p class="text-lg">Scope is set after a short conversation and a conflict check.</p>
+      <a href="/contact/" class="btn mt-6">Tell us where you are</a>
+    </div>
+  </section>
+</Base>

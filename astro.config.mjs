@@ -10,7 +10,8 @@ export default defineConfig({
   base: '/',
   output: 'static',
   outDir: 'dist',
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => !page.includes('/internal/') })],
+  redirects: { '/method': '/process', '/engagements': '/services', '/proof': '/about' },
   vite: {
     plugins: [tailwindcss()],
   },
