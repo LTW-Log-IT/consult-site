@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import FounderBlock from '../components/FounderBlock.astro';
+import CageLine from '../components/CageLine.astro';
+import { stages, engagements } from '../data';
+---
+<Base title="Home" description="A BD operating system for defense and federal small businesses: go/no-go discipline, capture, teaming, proposal, and lessons learned, run cradle to grave.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-20 md:py-28">
+      <p class="eyebrow text-brass">For defense and federal small businesses</p>
+      <h1 class="mt-4 max-w-4xl">Know whether to bid before you staff the proposal.</h1>
+      <p class="mt-6 max-w-3xl text-lg md:text-xl text-[#d6d6d6]">A BD operating system for defense and federal small businesses: go/no-go discipline, capture, teaming, proposal, and lessons learned, run cradle to grave.</p>
+      <div class="mt-8 flex flex-wrap gap-4">
+        <a href="/contact" class="btn">Start a bid decision</a>
+        <a href="/method" class="btn-outline text-paper">See the method</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="wrap grid gap-10 md:grid-cols-2">
+      <div>
+        <p class="eyebrow text-crimson">The problem</p>
+        <h2 class="mt-2">Proposals get staffed before the opportunity is qualified.</h2>
+      </div>
+      <div class="space-y-4">
+        <p>An RFP drops, the team rallies, and writers, reviewers, and partners are committed before anyone has asked whether the company can actually win. Weeks later, the proposal goes out against an incumbent the customer already prefers, with a teaming gap nobody closed.</p>
+        <p>Every no-go decision made late costs real people's time. A disciplined go/no-go up front, followed by capture and teaming work before the solicitation, is how a small business spends its BD hours on the bids it can win.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-band py-16">
+    <div class="wrap">
+      <p class="eyebrow text-field">Method</p>
+      <h2 class="mt-2">Twelve stages, three gates, cradle to grave.</h2>
+      <ol class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {stages.map((s) => (
+          <li class:list={['bg-paper p-3 border', s.gate ? 'border-brass border-2' : 'border-[#dcdcd8]']}>
+            <span class="eyebrow text-field">{String(s.n).padStart(2, '0')}</span>
+            <span class="block font-heading font-bold leading-snug">{s.name}</span>
+            {s.gate && <span class="eyebrow block mt-1 text-crimson">{s.gate.replace('Gate: ', '')}</span>}
+          </li>
+        ))}
+      </ol>
+      <p class="mt-6"><a href="/method" class="font-heading font-bold text-contrast underline decoration-brass decoration-2">How each stage works and what you get &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="wrap">
+      <p class="eyebrow text-field">Engagements</p>
+      <h2 class="mt-2">Five ways to work together.</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {engagements.map((e) => (
+          <a href={`/engagements#${e.id}`} class="card block no-underline text-contrast hover:shadow-md">
+            <h3>{e.name}</h3>
+            <p class="eyebrow mt-1 text-field">{e.tag}</p>
+            <p class="mt-3">{e.who}</p>
+          </a>
+        ))}
+      </div>
+      <p class="mt-6"><a href="/engagements" class="font-heading font-bold text-contrast underline decoration-brass decoration-2">Compare engagements &rarr;</a></p>
+    </div>
+  </section>
+
+  <FounderBlock heading="Founder experience behind the method">
+    <p class="mt-4 max-w-3xl text-[#d6d6d6]">The method draws on our founder’s individual cradle-to-grave BD support experience, from qualification through proposal and lessons learned.</p>
+  </FounderBlock>
+
+  <section class="bg-band py-16">
+    <div class="wrap grid gap-8 md:grid-cols-2">
+      <div>
+        <p class="eyebrow text-field">Firewall</p>
+        <h2 class="mt-2">Your bid data stays yours.</h2>
+      </div>
+      <div class="space-y-4">
+        <ul class="list-disc pl-5 space-y-2">
+          <li>Client bid data is isolated from our own teaming and delivery pursuits.</li>
+          <li>We run a conflict check before any proposal support engagement.</li>
+          <li>We do not consult a prime and then subcontract to that prime on the same pursuit.</li>
+          <li>If a conflict appears mid-engagement, we disclose and step back.</li>
+        </ul>
+        <CageLine class="muted" />
+        <p><a href="/firewall" class="font-heading font-bold text-contrast underline decoration-brass decoration-2">Read the full firewall policy &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="wrap text-center">
+      <h2>Facing a bid decision?</h2>
+      <p class="mt-4 mx-auto max-w-2xl muted">Tell us about the opportunity. We will start with whether it is worth pursuing.</p>
+      <a href="/contact" class="btn mt-8">Start a bid decision</a>
+    </div>
+  </section>
+</Base>

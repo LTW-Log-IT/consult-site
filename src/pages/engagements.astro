@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import { engagements } from '../data';
+---
+<Base title="Engagements" description="Bid decision sprint, capture plan, proposal support or review, BD system stand-up, and win/loss after-action for defense and federal small businesses.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-16">
+      <p class="eyebrow text-brass">Engagements</p>
+      <h1 class="mt-3 max-w-4xl">Start with the decision in front of you.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">Each engagement maps to stages of the method. Scope is set after a short conversation about your opportunity and a conflict check.</p>
+    </div>
+  </section>
+  <section class="bg-band py-16">
+    <div class="wrap grid gap-6 lg:grid-cols-2">
+      {engagements.map((e) => (
+        <article id={e.id} class="card scroll-mt-6">
+          <h2 class="text-2xl">{e.name}</h2>
+          <p class="eyebrow mt-1 text-field">{e.tag}</p>
+          <dl class="mt-4 space-y-3">
+            <div><dt class="font-heading font-bold">Who it’s for</dt><dd>{e.who}</dd></div>
+            <div><dt class="font-heading font-bold">What you get</dt><dd>{e.get}</dd></div>
+            <div><dt class="font-heading font-bold">Typical output</dt><dd>{e.output}</dd></div>
+          </dl>
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="wrap text-center">
+      <h2>Not sure which one fits?</h2>
+      <p class="mt-4 mx-auto max-w-2xl muted">Send the opportunity details. We will tell you where to start.</p>
+      <a href="/contact" class="btn mt-8">Start a bid decision</a>
+    </div>
+  </section>
+</Base>

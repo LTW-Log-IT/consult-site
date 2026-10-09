@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+import { stages } from '../data';
+---
+<Base title="Method" description="Twelve BD stages for defense and federal small businesses, with go/no-go, bid/no-bid, and submit review gates.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-16">
+      <p class="eyebrow text-brass">Method</p>
+      <h1 class="mt-3 max-w-4xl">Twelve stages from strategy to delivery handoff.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">Each stage has a clear purpose and a concrete output. Three gates force a decision before you spend more: go/no-go at Qualify, bid/no-bid before Proposal, and a submit review before anything goes out the door.</p>
+    </div>
+  </section>
+
+  <section class="bg-band py-10">
+    <div class="wrap">
+      <h2 class="text-2xl">The three gates</h2>
+      <div class="mt-6 grid gap-4 md:grid-cols-3">
+        <div class="card"><p class="eyebrow text-crimson">Gate 1 · Stage 03</p><h3 class="mt-1">Go/no-go at Qualify</h3><p class="mt-2">Is this opportunity worth capture effort? Decided on a scorecard, not on enthusiasm.</p></div>
+        <div class="card"><p class="eyebrow text-crimson">Gate 2 · Before stage 07</p><h3 class="mt-1">Bid/no-bid before Proposal</h3><p class="mt-2">With the solicitation in hand, are we positioned to win? If not, stop before staffing the proposal.</p></div>
+        <div class="card"><p class="eyebrow text-crimson">Gate 3 · Stage 08</p><h3 class="mt-1">Submit review</h3><p class="mt-2">Is the package compliant, complete, and responsive to the evaluation criteria?</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16">
+    <div class="wrap">
+      <ol class="space-y-6">
+        {stages.map((s) => (
+          <li id={`stage-${s.n}`} class:list={['grid gap-4 md:grid-cols-[6rem_1fr] border-b border-[#dcdcd8] pb-6', s.gate && 'border-l-4 border-l-brass pl-4']}>
+            <div class="font-heading text-4xl font-extrabold text-field">{String(s.n).padStart(2, '0')}</div>
+            <div>
+              {s.gate && <p class="eyebrow text-crimson">{s.gate}</p>}
+              <h2 class="text-2xl">{s.name}</h2>
+              <p class="mt-2 max-w-3xl">{s.what}</p>
+              <p class="mt-2 max-w-3xl"><span class="eyebrow text-field">What you get:</span> {s.get}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-12 flex flex-wrap gap-4">
+        <a href="/engagements" class="btn-outline text-contrast">See engagements</a>
+        <a href="/contact" class="btn">Start a bid decision</a>
+      </div>
+    </div>
+  </section>
+</Base>

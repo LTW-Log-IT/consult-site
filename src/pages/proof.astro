@@ -1,0 +1,39 @@
+---
+import Base from '../layouts/Base.astro';
+import FounderBlock from '../components/FounderBlock.astro';
+const artifacts = [
+  { name: 'Stage gates', desc: 'Defined decision points with entry criteria, the questions to answer, and who decides: go/no-go, bid/no-bid, and submit review.' },
+  { name: 'Go/no-go scorecard', desc: 'A weighted scorecard covering customer access, capability fit, competition, teaming position, and resources, with a recorded decision and rationale.' },
+  { name: 'Capture plan outline', desc: 'A standard structure for customer needs, competitive view, win themes, teaming approach, solution direction, and an action list with owners.' },
+  { name: 'Teaming tracker', desc: 'A single view of potential partners, roles, workshare, agreement status, and open items for each pursuit.' },
+  { name: 'After-action template', desc: 'A structured review of what happened at each stage, what the debrief said, and the specific process changes that follow.' },
+];
+---
+<Base title="Proof" description="The BD method artifacts we use: stage gates, go/no-go scorecard, capture plan outline, teaming tracker, and after-action template.">
+  <section class="bg-gunmetal text-paper">
+    <div class="wrap py-16">
+      <p class="eyebrow text-brass">Proof</p>
+      <h1 class="mt-3 max-w-4xl">The proof is in the method you can inspect.</h1>
+      <p class="mt-5 max-w-3xl text-lg text-[#d6d6d6]">These are the working artifacts behind every engagement. We walk you through them before you commit.</p>
+    </div>
+  </section>
+  <section class="py-16">
+    <div class="wrap">
+      <h2>Method artifacts</h2>
+      <div class="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {artifacts.map((a) => (
+          <div class="card"><h3>{a.name}</h3><p class="mt-2">{a.desc}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+  <FounderBlock heading="Founder experience">
+    <p class="mt-4 max-w-3xl text-[#d6d6d6]">Our founder brings individual cradle-to-grave BD support experience across strategy, qualification, capture, teaming, proposal, and lessons learned.</p>
+  </FounderBlock>
+  <section class="py-16">
+    <div class="wrap text-center">
+      <h2>See the artifacts applied to your opportunity.</h2>
+      <a href="/contact" class="btn mt-8">Start a bid decision</a>
+    </div>
+  </section>
+</Base>

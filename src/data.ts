@@ -1,0 +1,57 @@
+export const stages = [
+  { n: 1, name: 'Strategy', what: 'We confirm which customers, missions, and contract types fit your company, so the pipeline is built on a deliberate target list instead of whatever shows up in a search feed.', get: 'A short target-market statement and pursuit criteria.' },
+  { n: 2, name: 'Identify', what: 'We find and log opportunities that match your criteria early, from forecasts, pre-solicitation notices, and customer engagement, before the RFP drops.', get: 'A pipeline entry for each opportunity with source, timing, and fit notes.' },
+  { n: 3, name: 'Qualify (go/no-go)', what: 'We score the opportunity against your capability, customer access, competition, teaming position, and resources. You decide go or no-go with the facts in front of you.', get: 'A completed go/no-go scorecard and a recommendation.', gate: 'Gate: go/no-go' },
+  { n: 4, name: 'Capture', what: 'We build the plan to win: customer needs, competitor view, win themes, and the actions and owners needed before the solicitation releases.', get: 'A capture plan with an action list and owners.' },
+  { n: 5, name: 'Teaming', what: 'We identify the gaps your company cannot cover alone and work through prime/sub roles, partner fit, and workshare before agreements are signed.', get: 'A teaming tracker with partner status and open items.' },
+  { n: 6, name: 'Solution', what: 'We shape the technical and management approach so it answers what the customer actually needs and can be staffed and delivered.', get: 'A solution outline tied to customer requirements and win themes.' },
+  { n: 7, name: 'Proposal', what: 'We organize the response: compliance matrix, outline, writing assignments, and color-team reviews, so the team writes to the evaluation criteria.', get: 'A compliance matrix, annotated outline, and review findings.', gate: 'Gate: bid/no-bid before proposal' },
+  { n: 8, name: 'Submit', what: 'We run a final review against the instructions and evaluation criteria and confirm the package is complete and on time.', get: 'A submission checklist and final review sign-off.', gate: 'Gate: submit review' },
+  { n: 9, name: 'Orals / negotiation', what: 'If the customer calls for orals, discussions, or clarifications, we help you prepare, rehearse, and respond consistently with the proposal.', get: 'Prep materials, rehearsal feedback, and response drafts.' },
+  { n: 10, name: 'Award / debrief', what: 'Win or lose, we help you request and prepare for the debrief so you capture what the evaluators saw.', get: 'Debrief questions and a summary of findings.' },
+  { n: 11, name: 'Lessons learned', what: 'We run an after-action review on what worked and what did not, and feed it back into your criteria, templates, and gates.', get: 'An after-action report with specific changes to your process.' },
+  { n: 12, name: 'Handoff to delivery', what: 'On a win, we hand the commitments made in the proposal to the delivery team so nothing promised gets lost at startup.', get: 'A handoff package: commitments, key personnel, and open risks.' },
+];
+
+export const engagements = [
+  {
+    id: 'bid-decision-sprint',
+    name: 'Bid decision sprint',
+    tag: 'Go/no-go on one opportunity',
+    who: 'A small business or capture team looking at one specific opportunity and needing a clear decision before committing proposal resources.',
+    get: 'A structured qualification of the opportunity against your capability, customer access, competition, teaming position, and available resources, ending in a go or no-go recommendation.',
+    output: 'Completed go/no-go scorecard, key risks and gaps, and a short recommendation memo.',
+  },
+  {
+    id: 'capture-plan',
+    name: 'Capture plan',
+    tag: 'Plan to win before the RFP',
+    who: 'A team that has decided to pursue and wants a disciplined plan between the go decision and the solicitation.',
+    get: 'Customer needs, competitive view, win themes, teaming approach, and the actions and owners needed to be positioned when the RFP releases.',
+    output: 'Capture plan document with an action list, owners, and dates.',
+  },
+  {
+    id: 'proposal-support',
+    name: 'Proposal support or review-only',
+    tag: 'Color-team style review',
+    who: 'A team writing a response that wants hands-on proposal management help, or an independent review of a draft.',
+    get: 'Either support organizing and managing the response (compliance matrix, outline, assignments, schedule) or a review-only engagement that evaluates your draft against the instructions and evaluation criteria.',
+    output: 'Compliance matrix and annotated outline, or written color-team review findings with prioritized fixes.',
+  },
+  {
+    id: 'bd-system-standup',
+    name: 'BD system stand-up',
+    tag: 'Pipeline, gates, dashboards, teaming tracker',
+    who: 'A company pursuing work without a repeatable BD process, or one whose pipeline lives in inboxes and spreadsheets nobody trusts.',
+    get: 'A working BD operating system: a pipeline with defined stages, stage gates with decision criteria, simple dashboards, and a teaming tracker your team can keep running.',
+    output: 'Configured pipeline and stage definitions, gate criteria and scorecards, dashboard views, and a teaming tracker.',
+  },
+  {
+    id: 'win-loss-after-action',
+    name: 'Win/loss after-action',
+    tag: 'Lessons learned you can use',
+    who: 'A team that just won or lost a bid and wants to understand why before the next one.',
+    get: 'A structured review of the pursuit from qualification through debrief, focused on decisions and process rather than blame.',
+    output: 'After-action report with findings and specific changes to your criteria, templates, and gates.',
+  },
+];

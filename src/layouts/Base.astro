@@ -1,0 +1,67 @@
+---
+import '../styles/global.css';
+import CageLine from '../components/CageLine.astro';
+
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const fullTitle = title === 'Home'
+  ? 'Lead the Way Logistics & IT | BD Consulting'
+  : `${title} | Lead the Way Logistics & IT BD Consulting`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const nav = [
+  { href: '/method', label: 'Method' },
+  { href: '/engagements', label: 'Engagements' },
+  { href: '/proof', label: 'Proof' },
+  { href: '/firewall', label: 'Firewall' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@500&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 bg-brass px-3 py-2">Skip to content</a>
+    <header class="bg-gunmetal text-paper">
+      <div class="wrap flex flex-wrap items-center justify-between gap-4 py-4">
+        <a href="/" class="no-underline text-paper leading-tight">
+          <span class="block font-heading text-xl font-extrabold">Lead the Way Logistics &amp; IT</span>
+          <span class="eyebrow text-brass">BD Consulting</span>
+        </a>
+        <nav aria-label="Primary" class="flex flex-wrap items-center gap-x-5 gap-y-2">
+          {nav.map((n) => (
+            <a href={n.href} class:list={['font-heading font-semibold no-underline hover:text-brass', path === n.href ? 'text-brass' : 'text-paper']} aria-current={path === n.href ? 'page' : undefined}>{n.label}</a>
+          ))}
+          <a href="https://leadthewaylogistics.info/" class="eyebrow text-[#cfcfcf] no-underline hover:text-brass border border-[#555] px-2 py-1">Main site</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main" class="flex-1">
+      <slot />
+    </main>
+    <footer class="bg-gunmetal text-[#d6d6d6] mt-0">
+      <div class="wrap py-10 text-[0.9375rem]">
+        <p class="text-paper font-semibold">Lead the Way Logistics &amp; IT LLC · Killeen, Texas · UEI MDDEPUWZFCW3 · CAGE pending</p>
+        <CageLine class="mt-3 max-w-3xl" />
+        <p class="mt-4 flex flex-wrap gap-x-5 gap-y-2">
+          <a href="https://leadthewaylogistics.info/" class="text-brass">Main site: leadthewaylogistics.info</a>
+          <a href="mailto:jbonilla@leadthewaylogistics.info" class="text-brass">jbonilla@leadthewaylogistics.info</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
